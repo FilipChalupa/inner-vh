@@ -8,7 +8,7 @@ Browser UI aware vh. Utility exposing JavaScript `innerHeight` to CSS.
 
 Try [this](https://onset.github.io/inner-vh/) in Google Chrome on Android.
 
-![Demo](./docs/demo.gif)
+![Demo](./demo.gif)
 
 ## Installation
 
