@@ -1,6 +1,6 @@
 # Inner vh
 
-Browser UI aware vh.
+Browser UI aware vh. Utility exposing JavaScript `innerHeight` to CSS.
 
 [313 B](https://bundlephobia.com/result?p=inner-vh@0.0.1) minified and gzipped.
 

@@ -1,0 +1,78 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<style>
+			.vh {
+				min-height: 100vh;
+			}
+
+			.innerVh {
+				min-height: calc(var(--innerVh, 1vh) * 100);
+			}
+
+			h1 {
+				margin: 0;
+				padding: 1em;
+			}
+
+			body {
+				margin: 0;
+				display: flex;
+				min-height: 100vh;
+			}
+
+			.vh,
+			.innerVh {
+				width: 50%;
+				position: relative;
+				display: flex;
+			}
+
+			.vh {
+				--height: 100vh;
+				--color: red;
+			}
+
+			.innerVh {
+				--height: calc(var(--innerVh, 1vh) * 100);
+				--color: green;
+			}
+
+			.vh::after,
+			.innerVh::after {
+				content: '';
+				float: left;
+				background-color: black;
+				border-top: var(--height) solid var(--color);
+				border-right: 100px solid transparent;
+				order: -1;
+			}
+
+			.vh::before,
+			.innerVh::before {
+				content: '';
+				float: left;
+				box-sizing: border-box;
+				width: 100px;
+				margin-left: -100px;
+				margin-right: 1em;
+				height: var(--height);
+				border-bottom: 10px solid var(--color);
+			}
+		</style>
+	</head>
+	<body>
+		<section class="vh">
+			<h1>vh</h1>
+		</section>
+
+		<section class="innerVh">
+			<h1>innerVh</h1>
+		</section>
+
+		<script src="https://unpkg.com/inner-vh/dist/index.js"></script>
+		<script>
+			innerVh()
+		</script>
+	</body>
+</html>
