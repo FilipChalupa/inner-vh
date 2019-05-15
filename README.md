@@ -20,13 +20,13 @@ npm install inner-vh
 
 ### JavaScript
 
-```JavaScript
+```javascript
 import innerVh from 'innerVh'
 
 innerVh()
 ```
 
-```CSS
+```css
 body {
 	min-height: 100vh; // Fallback for very old browsers
 	min-height: calc(var(--innerVh, 1vh) * 100);
