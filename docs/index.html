@@ -8,34 +8,8 @@
 		<title>Inner vh</title>
 		<style>
 			.vh {
-				min-height: 100vh;
-			}
-
-			.innerVh {
-				min-height: calc(var(--innerVh, 1vh) * 100);
-			}
-
-			h1 {
-				margin: 0;
-				padding: 1em;
-			}
-
-			body {
-				margin: 0;
-				display: flex;
-				min-height: 100vh;
-			}
-
-			.vh,
-			.innerVh {
-				width: 50%;
-				position: relative;
-				display: flex;
-			}
-
-			.vh {
 				--height: 100vh;
-				--color: red;
+				--color: blue;
 			}
 
 			.innerVh {
@@ -43,26 +17,50 @@
 				--color: green;
 			}
 
-			.vh::after,
-			.innerVh::after {
-				content: '';
-				float: left;
-				background-color: black;
-				border-top: var(--height) solid var(--color);
-				border-right: 100px solid transparent;
-				order: -1;
+			h1 {
+				margin: 0;
+				padding: 1em;
+				position: absolute;
+				top: 0;
+				left: 6rem;
+				bottom: 0;
+				writing-mode: vertical-lr;
+				text-align: center;
+				font-family: sans-serif;
+			}
+
+			body {
+				margin: 0;
+				display: flex;
+				align-items: flex-start;
+				min-height: 100vh;
+			}
+
+			.vh,
+			.innerVh {
+				width: 50%;
+				position: relative;
 			}
 
 			.vh::before,
 			.innerVh::before {
 				content: '';
 				float: left;
-				box-sizing: border-box;
-				width: 100px;
-				margin-left: -100px;
-				margin-right: 1em;
-				height: var(--height);
-				border-bottom: 10px solid var(--color);
+				background-color: #cccccc;
+				border-top: var(--height) solid var(--color);
+				border-right: 6rem solid transparent;
+			}
+
+			.vh::after,
+			.innerVh::after {
+				position: absolute;
+				left: calc(6rem - 2.5em);
+				bottom: 0.5em;
+				content: '';
+				width: 2em;
+				height: 2em;
+				border-radius: 50%;
+				background-color: var(--color);
 			}
 		</style>
 	</head>
