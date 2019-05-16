@@ -26,6 +26,8 @@ import innerVh from 'inner-vh'
 innerVh()
 ```
 
+### CSS
+
 ```css
 body {
 	min-height: 100vh; // Fallback for very old browsers
