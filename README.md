@@ -21,7 +21,7 @@ npm install inner-vh
 ### JavaScript
 
 ```javascript
-import innerVh from 'innerVh'
+import innerVh from 'inner-vh'
 
 innerVh()
 ```
