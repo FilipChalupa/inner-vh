@@ -1,13 +1,3 @@
-function updateCustomProperty(
-	customPropertyName: string | null,
-	innerVhInPx: number,
-	root: HTMLElement
-) {
-	if (customPropertyName) {
-		root.style.setProperty(`--${customPropertyName}`, `${innerVhInPx}px`)
-	}
-}
-
 export default function innerVh(
 	customPropertyName: string | null = 'innerVh',
 	onChangeCallback: (innerVhInPx: number) => void = () => {},
@@ -15,7 +5,9 @@ export default function innerVh(
 ) {
 	const update = () => {
 		const innerVhInPx = window.innerHeight / 100
-		updateCustomProperty(customPropertyName, innerVhInPx, root)
+		if (customPropertyName) {
+			root.style.setProperty(`--${customPropertyName}`, `${innerVhInPx}px`)
+		}
 		onChangeCallback(innerVhInPx)
 	}
 
