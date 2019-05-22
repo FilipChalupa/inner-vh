@@ -18,7 +18,9 @@ npm install inner-vh
 
 ## Usage
 
-### JavaScript
+### Basic Example
+
+#### JavaScript
 
 ```javascript
 import innerVh from 'inner-vh'
@@ -26,11 +28,41 @@ import innerVh from 'inner-vh'
 innerVh()
 ```
 
-### CSS
+#### CSS
 
 ```css
 body {
 	min-height: 100vh; // Fallback for very old browsers
 	min-height: calc(var(--innerVh, 1vh) * 100);
+}
+```
+
+---
+
+---
+
+### Advanced Example
+
+#### JavaScript
+
+```javascript
+import innerVh from 'inner-vh'
+
+innerVh(
+	'rawInnerVh', // Custom property name
+	(innerVhInPx) => console.log(`innerVh = ${innerVhInPx}px`), // On change callback
+	document.documentElement // Element with custom property
+)
+```
+
+#### CSS
+
+```css
+:root {
+	--innerHeight: calc(var(--rawInnerVh, 1vh) * 100); /* Fallbacks to 100vh */
+}
+
+body {
+	min-height: var(--innerHeight);
 }
 ```
