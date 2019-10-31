@@ -2,8 +2,6 @@
 
 Browser UI aware vh. Utility exposing JavaScript `innerHeight` to CSS.
 
-[294 B](https://bundlephobia.com/result?p=inner-vh@0.0.13) minified and gzipped.
-
 ## Demo
 
 Try [this](https://onset.github.io/inner-vh/) in Google Chrome/Firefox on Android.
@@ -51,7 +49,8 @@ import innerVh from 'inner-vh'
 innerVh(
 	'rawInnerVh', // Custom property name
 	(innerVhInPx) => console.log(`innerVh = ${innerVhInPx}px`), // On change callback
-	document.documentElement // Element with custom property
+	document.documentElement, // Element with custom property,
+	true // Suppress changes caused by hiding url bar
 )
 ```
 
