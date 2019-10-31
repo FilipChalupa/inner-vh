@@ -6,8 +6,8 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "tsc",
-		"demo": "npm run build && serve docs --symlinks",
+		"build": "tsc && cp dist/index.js docs/index.js",
+		"demo": "npm run build && serve docs",
 		"prepublish": "npm run build"
 	},
 	"repository": {

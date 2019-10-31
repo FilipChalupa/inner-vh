@@ -144,13 +144,8 @@
 		</section>
 
 		<script type="module">
-			Promise.resolve()
-				.then(() => import('./index.js'))
-				.catch(() => import('https://unpkg.com/inner-vh/dist/index.js'))
-				.then((m) => {
-					const innerVh = m.default
-					innerVh('innerVh', () => {}, document.documentElement, true)
-				})
+			import innerVh from './index.js'
+			innerVh('innerVh', () => {}, document.documentElement, true)
 		</script>
 	</body>
 </html>
