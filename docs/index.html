@@ -145,7 +145,7 @@
 
 		<script type="module">
 			Promise.resolve()
-				.then(() => import('../dist/index.js'))
+				.then(() => import('./index.js'))
 				.catch(() => import('https://unpkg.com/inner-vh/dist/index.js'))
 				.then((m) => {
 					const innerVh = m.default
