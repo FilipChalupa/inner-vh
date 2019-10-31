@@ -149,7 +149,7 @@
 				.catch(() => import('https://unpkg.com/inner-vh/dist/index.js'))
 				.then((m) => {
 					const innerVh = m.default
-					innerVh()
+					innerVh('innerVh', () => {}, document.documentElement, true)
 				})
 		</script>
 	</body>
