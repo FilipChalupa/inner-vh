@@ -2,9 +2,10 @@ const HEIGHT_CHANGE_THRESHOLD = 100 // maximum height of a collapsible ui of any
 
 export default function innerVh(
 	customPropertyName: string | null = 'innerVh',
-	onChangeCallback: (innerVhInPx: number) => void = () => {},
+	onChangeCallback: (innerVhInPx: number) => void = () => {
+	},
 	root: HTMLElement = document.documentElement,
-	suppressChangesByCollapsibleUiByEducatedGuess: boolean = false
+	suppressChangesByCollapsibleUiByEducatedGuess: boolean = false,
 ) {
 	let lastKnownWidth = 0
 	let lastKnownHeight = 0
