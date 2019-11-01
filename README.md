@@ -21,7 +21,7 @@ npm install inner-vh
 #### JavaScript
 
 ```javascript
-import innerVh from 'inner-vh'
+import { innerVh } from 'inner-vh'
 
 innerVh()
 ```
@@ -44,14 +44,15 @@ body {
 #### JavaScript
 
 ```javascript
-import innerVh from 'inner-vh'
+import { innerVh } from 'inner-vh'
 
-innerVh(
-	'rawInnerVh', // Custom property name
-	(innerVhInPx) => console.log(`innerVh = ${innerVhInPx}px`), // On change callback
-	document.documentElement, // Element with custom property,
-	true // Suppress changes caused by hiding url bar
-)
+innerVh({
+	customPropertyName: 'rawInnerVh',
+	onChangeCallback: (innerVhInPx) => console.log(`innerVh = ${innerVhInPx}px`),
+	root: document.documentElement, // Custom property --rawInnerVh will be applied to this element
+	ignoreCollapsibleUi: true, // Custom property won't be updated if mobile url bar collapses or expands
+	maximumCollapsibleUiHeight: 100 // Height of collapsible ui in pixels. Smaller number reduces false positives.
+})
 ```
 
 #### CSS

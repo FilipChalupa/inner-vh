@@ -1,23 +1,25 @@
-const HEIGHT_CHANGE_THRESHOLD = 100 // maximum height of a collapsible ui of any browser in pixels
-
-export default function innerVh(
-	customPropertyName: string | null = 'innerVh',
-	onChangeCallback: (innerVhInPx: number) => void = () => {
-	},
-	root: HTMLElement = document.documentElement,
-	suppressChangesByCollapsibleUiByEducatedGuess: boolean = false,
-) {
-	let lastKnownWidth = 0
-	let lastKnownHeight = 0
+export function innerVh({
+	customPropertyName = 'innerVh',
+	root = document.documentElement,
+	ignoreCollapsibleUi = true,
+	maximumCollapsibleUiHeight = 100,
+	...options
+}: {
+	customPropertyName?: string
+	onChangeCallback?: (innerVhInPx: number) => void
+	root?: HTMLElement
+	ignoreCollapsibleUi?: boolean
+	maximumCollapsibleUiHeight?: number // in pixels
+} = {}) {
+	let [lastKnownWidth, lastKnownHeight] = [0, 0]
 
 	const update = () => {
-		const width = window.innerWidth
-		const height = window.innerHeight
+		const [width, height] = [window.innerWidth, window.innerHeight]
 
 		if (
-			suppressChangesByCollapsibleUiByEducatedGuess &&
+			ignoreCollapsibleUi &&
 			width === lastKnownWidth &&
-			Math.abs(height - lastKnownHeight) < HEIGHT_CHANGE_THRESHOLD
+			Math.abs(height - lastKnownHeight) <= maximumCollapsibleUiHeight
 		) {
 			return
 		}
@@ -26,10 +28,8 @@ export default function innerVh(
 		if (customPropertyName) {
 			root.style.setProperty(`--${customPropertyName}`, `${innerVhInPx}px`)
 		}
-		onChangeCallback(innerVhInPx)
-
-		lastKnownWidth = width
-		lastKnownHeight = height
+		options.onChangeCallback && options.onChangeCallback(innerVhInPx)
+		;[lastKnownWidth, lastKnownHeight] = [width, height]
 	}
 
 	window.addEventListener('resize', update)
