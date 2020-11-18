@@ -6,7 +6,7 @@ Browser UI aware vh. Utility exposing JavaScript `innerHeight` to CSS.
 
 Try [this](https://filipchalupa.cz/inner-vh/demo.html) in Google Chrome/Firefox on Android or Safari on iOS.
 
-![Demo](./demo.gif)
+![Demo](https://raw.githubusercontent.com/FilipChalupa/inner-vh/HEAD/demo.gif)
 
 ## Installation
 
