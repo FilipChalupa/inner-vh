@@ -6,6 +6,7 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "tsc --watch",
 		"build": "tsc && cp dist/index.js docs/index.js",
 		"demo": "npm run build && serve docs",
 		"prepublish": "npm run build"
