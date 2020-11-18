@@ -144,8 +144,14 @@
 		</section>
 
 		<script type="module">
-			import { innerVh } from './index.js'
-			innerVh()
+			import('./dist/index.es.js')
+				.catch((error) =>
+					import('https://unpkg.com/inner-vh@latest/dist/index.es.js')
+				)
+				.then((library) => {
+					const { innerVh } = library
+					innerVh()
+				})
 		</script>
 	</body>
 </html>
